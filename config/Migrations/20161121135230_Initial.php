@@ -125,7 +125,7 @@ class Initial extends AbstractMigration
             )
             ->create();
 
-        $this->table('garages_towhouses', ['id' => false, 'primary_key' => ['']])
+        $this->table('garages_towhouses')
             ->addColumn('garage_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
