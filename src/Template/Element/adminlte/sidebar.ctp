@@ -56,13 +56,13 @@
         <li class="visualizar"><?=$this->Html->link('Visualizar/Editar', '/addresses');?></li>
       </ul>
     </li>
-    <li class="treeview towhouses">
+    <li class="treeview townhouses">
       <a href="#">
         <i class="fa fa-building"></i> <span>Condomínios</span> <i class="fa fa-angle-left pull-right"></i>
       </a>
       <ul class="treeview-menu">
-        <li class="add"><?=$this->Html->link('Adcionar', '/towhouses/add');?></li>
-        <li class="visualizar"><?=$this->Html->link('Visualizar/Editar', '/towhouses');?></li>
+        <li class="add"><?=$this->Html->link('Adcionar', '/townhouses/add');?></li>
+        <li class="visualizar"><?=$this->Html->link('Visualizar/Editar', '/townhouses');?></li>
       </ul>
     </li>
     <li class="treeview vehiclestypes">
@@ -81,15 +81,6 @@
       <ul class="treeview-menu">
         <li class="add"><?=$this->Html->link('Adcionar', '/periods/add');?></li>
         <li class="visualizar"><?=$this->Html->link('Visualizar/Editar', '/periods');?></li>
-      </ul>
-    </li>
-    <li class="treeview plans">
-      <a href="#">
-        <i class="fa fa-check-square-o"></i> <span>Planos</span> <i class="fa fa-angle-left pull-right"></i>
-      </a>
-      <ul class="treeview-menu">
-        <li class="add"><?=$this->Html->link('Adcionar', '/plans/add');?></li>
-        <li class="visualizar"><?=$this->Html->link('Visualizar/Editar', '/plans');?></li>
       </ul>
     </li>
     <li class="treeview paymentstypes">

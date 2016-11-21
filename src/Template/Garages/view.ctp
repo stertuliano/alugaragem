@@ -10,18 +10,6 @@
             <td><?= $garage->has('address') ? $this->Html->link($garage->address->id, ['controller' => 'Addresses', 'action' => 'view', $garage->address->id]) : '' ?></td>
         </tr>
         <tr>
-            <th>Vehicles Type</th>
-            <td><?= $garage->has('vehicles_type') ? $this->Html->link($garage->vehicles_type->name, ['controller' => 'VehiclesTypes', 'action' => 'view', $garage->vehicles_type->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th>Plan</th>
-            <td><?= $garage->has('plan') ? $this->Html->link($garage->plan->name, ['controller' => 'Plans', 'action' => 'view', $garage->plan->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th>Payments Type</th>
-            <td><?= $garage->has('payments_type') ? $this->Html->link($garage->payments_type->name, ['controller' => 'PaymentsTypes', 'action' => 'view', $garage->payments_type->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th>Tittle</th>
             <td><?= h($garage->tittle) ?></td>
         </tr>

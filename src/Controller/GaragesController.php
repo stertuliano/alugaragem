@@ -19,7 +19,7 @@ class GaragesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users', 'Addresses', 'VehiclesTypes', 'Plans', 'PaymentsTypes']
+            'contain' => ['Users', 'Addresses', 'VehiclesTypes', 'PaymentsTypes']
         ];
         $garages = $this->paginate($this->Garages);
 
@@ -37,7 +37,7 @@ class GaragesController extends AppController
     public function view($id = null)
     {
         $garage = $this->Garages->get($id, [
-            'contain' => ['Users', 'Addresses', 'VehiclesTypes', 'Plans', 'PaymentsTypes', 'GaragesTowhouses', 'Periods']
+            'contain' => ['Users', 'Addresses', 'VehiclesTypes', 'PaymentsTypes', 'GaragesTowhouses', 'Periods']
         ]);
 
         $this->set('garage', $garage);
@@ -65,9 +65,8 @@ class GaragesController extends AppController
         $users = $this->Garages->Users->find('list', ['limit' => 200]);
         $addresses = $this->Garages->Addresses->find('list', ['limit' => 200]);
         $vehiclesTypes = $this->Garages->VehiclesTypes->find('list', ['limit' => 200]);
-        $plans = $this->Garages->Plans->find('list', ['limit' => 200]);
         $paymentsTypes = $this->Garages->PaymentsTypes->find('list', ['limit' => 200]);
-        $this->set(compact('garage', 'users', 'addresses', 'vehiclesTypes', 'plans', 'paymentsTypes'));
+        $this->set(compact('garage', 'users', 'addresses', 'vehiclesTypes', 'paymentsTypes'));
         $this->set('_serialize', ['garage']);
     }
 
@@ -96,9 +95,8 @@ class GaragesController extends AppController
         $users = $this->Garages->Users->find('list', ['limit' => 200]);
         $addresses = $this->Garages->Addresses->find('list', ['limit' => 200]);
         $vehiclesTypes = $this->Garages->VehiclesTypes->find('list', ['limit' => 200]);
-        $plans = $this->Garages->Plans->find('list', ['limit' => 200]);
         $paymentsTypes = $this->Garages->PaymentsTypes->find('list', ['limit' => 200]);
-        $this->set(compact('garage', 'users', 'addresses', 'vehiclesTypes', 'plans', 'paymentsTypes'));
+        $this->set(compact('garage', 'users', 'addresses', 'vehiclesTypes', 'paymentsTypes'));
         $this->set('_serialize', ['garage']);
     }
 

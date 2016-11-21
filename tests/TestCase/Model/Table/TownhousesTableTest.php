@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\GaragesTable;
+use App\Model\Table\TownhousesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\GaragesTable Test Case
+ * App\Model\Table\TownhousesTable Test Case
  */
-class GaragesTableTest extends TestCase
+class TownhousesTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\GaragesTable
+     * @var \App\Model\Table\TownhousesTable
      */
-    public $Garages;
+    public $Townhouses;
 
     /**
      * Fixtures
@@ -24,15 +24,17 @@ class GaragesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.garages',
-        'app.users',
+        'app.townhouses',
         'app.addresses',
         'app.cities',
-        'app.townhouses',
-        'app.vehicles_types',
-        'app.payments_types',
+        'app.garages',
+        'app.users',
         'app.garages_towhouses',
-        'app.periods'
+        'app.periods',
+        'app.payments_types',
+        'app.garages_payments_types',
+        'app.vehicles_types',
+        'app.garages_vehicles_types'
     ];
 
     /**
@@ -43,8 +45,8 @@ class GaragesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Garages') ? [] : ['className' => 'App\Model\Table\GaragesTable'];
-        $this->Garages = TableRegistry::get('Garages', $config);
+        $config = TableRegistry::exists('Townhouses') ? [] : ['className' => 'App\Model\Table\TownhousesTable'];
+        $this->Townhouses = TableRegistry::get('Townhouses', $config);
     }
 
     /**
@@ -54,7 +56,7 @@ class GaragesTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Garages);
+        unset($this->Townhouses);
 
         parent::tearDown();
     }

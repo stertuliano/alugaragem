@@ -11,11 +11,10 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\BelongsTo $Addresses
- * @property \Cake\ORM\Association\BelongsTo $VehiclesTypes
- * @property \Cake\ORM\Association\BelongsTo $Plans
- * @property \Cake\ORM\Association\BelongsTo $PaymentsTypes
  * @property \Cake\ORM\Association\HasMany $GaragesTowhouses
  * @property \Cake\ORM\Association\HasMany $Periods
+ * @property \Cake\ORM\Association\BelongsToMany $PaymentsTypes
+ * @property \Cake\ORM\Association\BelongsToMany $VehiclesTypes
  *
  * @method \App\Model\Entity\Garage get($primaryKey, $options = [])
  * @method \App\Model\Entity\Garage newEntity($data = null, array $options = [])
@@ -50,23 +49,21 @@ class GaragesTable extends Table
             'foreignKey' => 'address_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('VehiclesTypes', [
-            'foreignKey' => 'vehicle_type_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('Plans', [
-            'foreignKey' => 'plan_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('PaymentsTypes', [
-            'foreignKey' => 'payment_type_id',
-            'joinType' => 'INNER'
-        ]);
         $this->hasMany('GaragesTowhouses', [
             'foreignKey' => 'garage_id'
         ]);
         $this->hasMany('Periods', [
             'foreignKey' => 'garage_id'
+        ]);
+        $this->belongsToMany('PaymentsTypes', [
+            'foreignKey' => 'garage_id',
+            'targetForeignKey' => 'payments_type_id',
+            'joinTable' => 'garages_payments_types'
+        ]);
+        $this->belongsToMany('VehiclesTypes', [
+            'foreignKey' => 'garage_id',
+            'targetForeignKey' => 'vehicles_type_id',
+            'joinTable' => 'garages_vehicles_types'
         ]);
     }
 
@@ -112,9 +109,6 @@ class GaragesTable extends Table
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['address_id'], 'Addresses'));
-        $rules->add($rules->existsIn(['vehicle_type_id'], 'VehiclesTypes'));
-        $rules->add($rules->existsIn(['plan_id'], 'Plans'));
-        $rules->add($rules->existsIn(['payment_type_id'], 'PaymentsTypes'));
 
         return $rules;
     }

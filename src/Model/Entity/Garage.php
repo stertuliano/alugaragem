@@ -9,9 +9,6 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $user_id
  * @property int $address_id
- * @property int $vehicle_type_id
- * @property int $plan_id
- * @property int $payment_type_id
  * @property string $tittle
  * @property string $description
  * @property \Cake\I18n\Time $add_date
@@ -20,7 +17,6 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Address $address
  * @property \App\Model\Entity\VehiclesType $vehicles_type
- * @property \App\Model\Entity\Plan $plan
  * @property \App\Model\Entity\PaymentsType $payments_type
  * @property \App\Model\Entity\GaragesTowhouse[] $garages_towhouses
  * @property \App\Model\Entity\Period[] $periods

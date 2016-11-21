@@ -4,14 +4,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Plan Entity
+ * Townhouse Entity
  *
  * @property int $id
+ * @property int $address_id
  * @property string $name
  *
- * @property \App\Model\Entity\Garage[] $garages
+ * @property \App\Model\Entity\Address $address
  */
-class Plan extends Entity
+class Townhouse extends Entity
 {
 
     /**
